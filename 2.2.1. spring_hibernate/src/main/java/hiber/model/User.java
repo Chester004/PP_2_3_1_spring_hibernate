@@ -1,6 +1,14 @@
 package hiber.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "users")
@@ -23,14 +31,6 @@ public class User {
     @OneToOne
     @JoinColumn(name = "car_id")
     private Car car;
-
-    public void setCar(Car car) {
-        this.car = car;
-    }
-
-    public Car getCar() {
-        return car;
-    }
 
     public User() {
     }
@@ -73,6 +73,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public Car getCar() {
+        return car;
     }
 
     @Override
